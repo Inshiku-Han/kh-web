@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="exam" method="get">
+<table>
+	<tr>
+		<td>이름</td>
+		<td><input type="text" name="name" value="자바"></td>
+	</tr>
+	<tr>
+		<td>나이</td>
+		<td><input type="number" name="age" required="required" placeholder="30"></td>
+	</tr>
+	<tr>
+		<td>주소</td>
+		<td><input type="text" name="adress"></td>
+	</tr>
+	<tr>
+		<td>남<input type="radio" name="gender" value="남">여<input type="radio" name="gender" value="여"></td>
+	</tr><!-- radio는 name이랑 value필요 -->
+	<tr>
+		<td>번호
+			<select name="tell">
+				<option>010</option><!-- option은 value 미지정시 내용을 value화한다. -->
+				<option>011</option>
+				<option>012</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><input type="submit" value="확인"><input type="reset" value="다시작성"></td>
+	</tr>
+</table>
+</form>
+
+<h3><a href="exam?name=한안식&age=16&adress=울산&gender=남&tell=010">페이지이동</a></h3>
+</body>
+</html>

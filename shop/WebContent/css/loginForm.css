@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+	table {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	
+	tr, td{
+		border: 1px solid black;
+	}
+	
+	.title{
+		border: 1px solid black;
+		text-align: center;		
+		background-color: #FF8A3D;
+		color: white;
+	}
+	

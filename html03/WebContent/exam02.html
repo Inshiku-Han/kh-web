@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>훈스 해설</title>
+<style type="text/css">
+	table{
+		border : 1px solid black;
+		border-collapse: collapse; /*많이 씀*/
+		width: 550px;
+		height: 100px;
+	}
+	tr, td{
+		border : 1px solid black;
+	}
+	.right{
+		text-align: right; /*텍스트 정렬*/
+		/* background-color: #777777; */ /* 16진수 숫자 세개로 R/G/B의  색깔 넣기 */
+	}
+	.color{
+	background-color: #666666;
+	}
+</style>
+</head>
+<body>
+	<table>
+	<colgroup>
+		<col width="20%"> <!-- 열 크기 조절 -->
+		<col width="80%">
+	</colgroup>
+		<tbody>
+			<tr>
+				<td class="right color">아이디</td>
+				<td>
+				<input type="text" required="required">
+				<input type="button" value="인풋방식">
+				<button>태그방식</button>
+				<!-- <input type="reset" value="다시 작성">
+				<input type="submit" value="전송"> -->
+				</td> <!-- required된 인풋을 적지 않으면 페이지 못벗어남 -->
+			</tr>
+			<tr>
+				<td class="right">일반전화</td>
+				<td>
+					<select>
+						<option>051</option>
+						<option selected="selected">052</option>
+						<option>053</option>
+					</select> -
+					<input type="text"> - <input type="text">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

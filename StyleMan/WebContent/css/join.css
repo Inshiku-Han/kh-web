@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#cover {
+	border: 1px solid black;
+}
+
+#cover>div {
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 3px;
+}
+
+.joinInput {
+	width: 80px;
+	height: 20px;
+}
+
+.joinTelInput {
+	width: 40px;
+	height: 20px;
+}
+tr{
+	border: 3px solid white;
+}
+.whiteTd {
+	width: 35%;
+	padding-left: 10px;
+}
+
+.grayTd {
+	width: 15%;
+	background: #eeeeee;
+	padding-right: 10px;
+}
+
+.banner {
+	background: #e1e1e8;
+	font-weight: bold;
+}
+
+.radioText {
+	position: relative;
+}

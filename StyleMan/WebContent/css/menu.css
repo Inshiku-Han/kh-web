@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+#blackDiv {
+	color: white;
+	background: #333333;
+	height: 40px;
+	font-size: 12px;
+}
+
+#blackDiv>div {
+	display: inline-block;
+}
+
+#titleDiv {
+	position: relative;
+	left: 50px;
+}
+
+#boldTitle {
+	font-size: 27px;
+	font-weight: bold;
+}
+
+#normalTitle {
+	font-size: 27px;
+	font-weight: lighter;
+}
+
+.titleDiv>span {
+	margin: auto;
+}
+
+#searchBar {
+	width: 297px;
+	height: 28px;
+	position: relative;
+	bottom: 5px;
+}
+
+#topMenuDiv {
+	float: right;
+	position: relative;
+	top: 10px;
+	right: 200px;
+}
+
+#topMenu>li {
+	display: inline-block;
+	padding-right: 10px;
+	font-size: 10px;
+	color: #ffffff;
+}
+
+#whiteDiv {
+	height: 30px;
+	font-size: 14px;
+	position: relative;
+	bottom: 3px;
+}
+
+#itemMenu>li {
+	display: inline-block;
+	padding: 10px;
+	color: #666666;
+}
+
+li:hover {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+	margin-top: 0;
+}

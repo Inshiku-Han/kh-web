@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 쿼리문은 해당 Mapper파일에서 모두 작성한다. -->
+<!-- Mapper 파일은 여러개일 수 있기 때문에 각 Mapper파일을 구별할 수 있도록 -->
+<!-- 이름을 준다. 이름을 주는 방법이 mapper의 namespace속성에 값을 주는 것이다. -->
+<mapper namespace="memberMapper">
+	<!-- ResultMap은 디비에서의 실행결과를 자바에서 사용할 수 있도록 -->
+	<!-- DTO Object와 연결하는 것이다. -->
+	<resultMap type="dto.MemberDTO" id="member">
+		<result column="ID" 		property="id"/>
+		<result column="PASSWORD" 	property="password"/><!-- property값을 column으로 받겠다.(Mapping) -->
+		<result column="NAME" 		property="name"/>
+		<result column="AGE" 		property="age"/>
+		<result column="EMAIL" 		property="email"/>
+	</resultMap>	
+	<!-- query문에 해당하는 태그 생성 -->
+	<insert id="joinMember"> <!-- 명명 -->
+		INSERT INTO MEMBER (
+			ID
+			, PASSWORD
+			, NAME
+			, AGE
+			, EMAIL
+		) VALUES (
+			#{id}
+			, #{password}
+			, #{name}
+			, #{age}
+			, #{email}
+		)
+	</insert>
+	
+	<select id="login" resultMap="member">
+		SELECT ID
+			, PASSWORD
+		FROM MEMBER
+		WHERE ID = #{id} AND PASSWORD = #{password}
+	</select>
+	
+	<select id="selectMemberList" resultMap="member">
+		SELECT ID
+		FROM MEMBER
+	</select>
+	
+	<select id="selectMemberInfo" resultMap="member">
+		SELECT ID
+			, PASSWORD
+			, NAME
+			, AGE
+			, EMAIL
+		FROM MEMBER 
+		WHERE ID = #{id}
+	</select>
+	
+	<delete id="deleteMember">
+		DELETE MEMBER 
+		WHERE ID = #{id}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

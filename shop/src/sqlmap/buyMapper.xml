@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 쿼리문은 해당 Mapper파일에서 모두 작성한다. -->
+<!-- Mapper 파일은 여러개일 수 있기 때문에 각 Mapper파일을 구별할 수 있도록 -->
+<!-- 이름을 준다. 이름을 주는 방법이 mapper의 namespace속성에 값을 주는 것이다. -->
+<mapper namespace="buyMapper">
+	<!-- ResultMap은 디비에서의 실행결과를 자바에서 사용할 수 있도록 -->
+	<resultMap type="vo.BuyVO" id="buy">
+		<result column="BUY_NUM" 		property="buyNum"/>
+		<result column="ITEM_CODE" 		property="itemCode"/>
+		<result column="MEMBER_ID" 		property="memberId"/>
+		<result column="BUY_CNT" 		property="buyCnt"/>
+		<result column="BUY_PRICE" 		property="buyPrice"/>
+		<result column="BUY_DATE" 		property="buyDate"/>
+	</resultMap>	
+	
+	<!-- BuyVO에는 없는 컬럼값을 담기 위해 새로운 클래스 생성 -->
+	<resultMap type="vo.BuyResultVO" id="buyResult">
+		<result column="ITEM_NAME" 		property="itemName"/>
+		<result column="ITEM_IMAGE" 	property="itemImage"/>
+		<result column="BUY_CNT" 		property="buyCnt"/>
+		<result column="BUY_PRICE" 		property="buyPrice"/>
+		<result column="BUY_DATE" 		property="buyDate"/>
+	</resultMap>	
+	
+	
+	<insert id="insertBuy">
+		INSERT INTO SHOP_BUY(BUY_NUM
+							, ITEM_CODE
+							, MEMBER_ID
+							, BUY_CNT
+							, BUY_PRICE
+							)
+		VALUES ((SELECT NVL(MAX(BUY_NUM)+1,1) FROM SHOP_BUY)
+				, #{itemCode}
+				, #{memberId}
+				, #{buyCnt}
+				, (SELECT ITEM_PRICE FROM SHOP_ITEM WHERE ITEM_CODE = #{itemCode}) * #{buyCnt}
+				)
+	</insert>
+	
+	<select id="selectBuyList" resultMap="buyResult" ><!-- buyMapper에서 SHOP_ITEM 테이블을 참조한다. 특이, 중요 -->
+		SELECT I.ITEM_NAME
+			, I.ITEM_IMAGE
+			, B.BUY_CNT
+			, B.BUY_PRICE
+			, B.BUY_DATE  
+		FROM SHOP_BUY B, SHOP_ITEM I
+		WHERE B.ITEM_CODE = I.ITEM_CODE
+		<if test="_parameter != 'admin'">
+		AND MEMBER_ID = #{memberId}
+		</if>
+	</select>
+	
+	<update id="updateAmount">
+		UPDATE SHOP_ITEM
+		SET ITEM_AMOUNT = ITEM_AMOUNT - #{buyCnt}
+		WHERE ITEM_CODE = #{itemCode}
+	
+	</update>
+	
+	
+</mapper>
+

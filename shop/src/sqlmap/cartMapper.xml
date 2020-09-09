@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 쿼리문은 해당 Mapper파일에서 모두 작성한다. -->
+<!-- Mapper 파일은 여러개일 수 있기 때문에 각 Mapper파일을 구별할 수 있도록 -->
+<!-- 이름을 준다. 이름을 주는 방법이 mapper의 namespace속성에 값을 주는 것이다. -->
+<mapper namespace="cartMapper">
+	<!-- ResultMap은 디비에서의 실행결과를 자바에서 사용할 수 있도록 -->
+	<resultMap type="vo.CartVO" id="cart">
+		<result column="CART_NUM" 		property="cartNum"/>
+		<result column="ITEM_CODE" 		property="itemCode"/>
+		<result column="MEMBER_ID" 		property="memberId"/>
+		<result column="ITEM_CNT" 		property="itemCnt"/>
+		<result column="TOTAL_PRICE" 	property="totalPrice"/>
+		<result column="ITEM_IMAGE" 	property="itemImage"/>
+		<result column="ITEM_NAME" 		property="itemName"/>
+		<result column="ITEM_PRICE" 	property="itemPrice"/>
+	</resultMap>	
+	
+	<insert id="insertCart">
+		MERGE INTO SHOP_CART
+     	USING DUAL
+      	ON (ITEM_CODE = #{itemCode} AND MEMBER_ID = #{memberId})
+      	WHEN MATCHED THEN
+        	UPDATE
+        	SET
+        	ITEM_CNT = ITEM_CNT + #{itemCnt}
+        	, TOTAL_PRICE = TOTAL_PRICE + (SELECT ITEM_PRICE
+               								FROM SHOP_ITEM
+               								WHERE ITEM_CODE = #{itemCode}) * #{itemCnt}
+      	WHEN NOT MATCHED THEN
+	        INSERT (
+	           CART_NUM
+	           , ITEM_CODE
+	           , MEMBER_ID
+	           , ITEM_CNT
+	           , TOTAL_PRICE
+	      ) VALUES (
+	       		(SELECT NVL(MAX(CART_NUM) + 1, 1) FROM SHOP_CART)
+	           , #{itemCode}
+	           , #{memberId}
+	           , #{itemCnt}
+	           , (SELECT ITEM_PRICE
+	           	   FROM SHOP_ITEM
+	               WHERE ITEM_CODE = #{itemCode}) * #{itemCnt}
+	         )
+	</insert>
+	
+	<select id="selectCartList" resultMap="cart">
+		SELECT CART_NUM
+    		, ITEM_IMAGE
+   			, ITEM_NAME
+		    , ITEM_PRICE
+		    , ITEM_CNT
+		    , TOTAL_PRICE
+		FROM SHOP_CART C, SHOP_ITEM I
+		WHERE C.ITEM_CODE = I.ITEM_CODE 
+		<if test="memberId != 'admin'">
+			AND MEMBER_ID = #{memberId}		
+		</if>
+	</select>
+	
+	<delete id="deleteCart">
+		DELETE SHOP_CART WHERE CART_NUM = #{cartNum}
+	</delete>
+	
+	<update id="updateCart">
+		UPDATE SHOP_CART
+		SET ITEM_CNT = #{itemCnt}
+			, TOTAL_PRICE = (SELECT ITEM_PRICE 
+							FROM SHOP_ITEM I
+								, SHOP_CART C 
+							WHERE I.ITEM_CODE = C.ITEM_CODE 
+							AND CART_NUM = #{cartNum}) * #{itemCnt}
+		WHERE CART_NUM = #{cartNum}
+	</update>
+	
+	<delete id="deleteCarts">
+		DELETE SHOP_CART
+		WHERE CART_NUM IN 
+		<foreach collection="cartNumList" item="cartNum" open="(" close=")" separator="," >
+			#{cartNum}
+		</foreach>
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

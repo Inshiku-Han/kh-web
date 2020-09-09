@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+body{
+	background-image: url("beach.jpg");
+	background-size: 100%;
+}
+
+table {
+	width: 80%;
+}
+
+tr {
+	height: 50px;
+}
+
+tr:nth-child(odd) {
+	background-color: #2a4fa0;
+	opacity: 0.8;
+}
+tr:nth-child(even) {
+	background-color: olive;
+	opacity: 0.6;
+}
+#headTr {
+	background: skyblue;
+}
+.listTitle:hover{
+	text-decoration: underline;
+	color: skyblue;
+	cursor: pointer;
+}
+table, tr, th, td {
+	border: 1px solid gray;
+	border-collapse: collapse;
+	text-align: center;
+	color: #ffffff;
+}
+
+
+div{
+	display: inline-block;
+	padding-top: 50px;
+}
+
+#leftAd{
+	width: 10%;
+	height: 500px;
+	background-image: url("leftAd.png");
+	background-size: 100%;
+}
+
+#listTableDiv{
+	width: 79%;
+	height: 500px;
+}
+#rightAd{
+	width: 10%;
+	height: 500px;
+	background-image: url("rightAd.png");
+	background-size: 100%;
+}

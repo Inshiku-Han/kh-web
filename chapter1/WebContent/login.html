@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>	<!-- form 내 login 안에 있는 method를 찾아가라 -->
+<form action="login" method="get"> <!-- action에 들어간 이름과 같은 webservlet을 찾는다. -->
+	아이디 <input type="text" name="id">
+	비밀번호 <input type="password" name="pw">
+	<input type="submit" value="로그인"> <!-- submit은 form 태그를 추적. form에 있는 모든 내용을 webservlet으로 가져간다. -->
+</form>
+</body>
+</html>
+
+

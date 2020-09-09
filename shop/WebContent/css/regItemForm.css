@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 800px;
+	height: 500px;
+}
+
+tr, td {
+	border: 1px solid black;
+	text-align: center;
+}
+
+.title {
+	background-color: #FF8A3D;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.input {
+	width: 600px;
+}
