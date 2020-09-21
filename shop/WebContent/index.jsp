@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>index</title>
 <script type="text/javascript">
-	location.href = 'itemList.it';
+	location.href = 'itemList.it'; 
 </script>
 </head>
 <body>
