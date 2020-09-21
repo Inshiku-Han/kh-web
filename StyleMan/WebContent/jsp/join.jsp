@@ -15,7 +15,7 @@
 			<div class="row text-center">
 				<table>
 					<tr>
-						<td class="grayTd">*성 명</td>
+						<td class="grayTd">*성 명</td> 
 						<td class="whiteTd" align="left"><input type="text"
 							class="joinInput"></td>
 						<td class="grayTd">*전화번호</td>
