@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body{
+	background-image: url("beach.jpg");
+	background-size: 100%;
+}
+table{
+	text-align: center;
+	color: white;
+}
+#grettingDiv{
+	color: white;
+}
+
+.js-title{
+	color: white;
+}
+.js-clock{
+	margin-right: 10px;
+}
+
+#menuDiv > input{
+	background-color: skyblue;
+	border-radius: 10px  0  10px 0;
+	border: none;
+	width: 100px;
+	height: 50px;
+	font-size: large;
+	color: white;
+}
+
+#menuDiv > input:hover{
+	cursor: pointer;
+	opacity: 0.8;
+}

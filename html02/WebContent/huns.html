@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입 화면</title>
+<style type="text/css">
+	table{
+	border : 0.5px solid black;
+	border-collapse : collapse;
+	}
+	tr{
+	border : 0.5px solid black;
+	}
+	td{
+	border : 0.5px solid black;
+	}
+	
+</style>
+</head>
+<body>
+<table border="1" >
+	<tbody>
+		<tr>
+			<td bgcolor="gray" align="center">아이디</td>
+			<td><input type="text"><button> 아이디 중복 확인</button> (영문소문자/숫자, 4~16자)</td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">비밀번호</td>
+			<td><input type="password"></td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">비밀번호확인</td>
+			<td><input type="password"> (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자)</td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">비밀번호확인 질문</td>
+			<td>
+				<select>
+					<option>기억에 남는 추억의 장소는?</option>
+					<option>자신의 인생 좌우명은?</option>
+					<option>자신의 보물 1호는?</option>
+					<option>가장 기억에 남는 선생님 성함은?</option>
+					<option>타인이 모르는 자신만의 신체비밀이 있다면?</option>
+					<option>추억하고 싶은 날짜가 있다면?</option>
+					<option>받았던 선물 중 기억에 남는 독특한 선물은?</option>
+					<option>유년시절 가장 생각나는 친구 이름은?</option>
+					<option>인상 깊게 읽은 책 이름은?</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">비밀번호확인 답변</td>
+			<td><input type="text" style="width: 300px;"></td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">이름</td>
+			<td><input type="text"></td>
+		</tr>
+		<tr>
+			<td rowspan="3"  bgcolor="gray" align="center">주소</td>
+			<td><input type="text" > - <button>우편번호</button></td>
+		</tr>
+		<tr>
+			<td><input type="text">기본주소</td>
+		</tr>
+		<tr>
+			<td><input type="text">나머지주소</td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">일반전화</td>
+			<td>
+				<select>
+					<option>051</option>
+					<option>052</option>
+					<option>053</option>
+					<option>054</option>
+				</select>
+				- <input type ="text" style="width : 50px;"> - <input type="text" style="width:50px;">
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">휴대전화</td>
+			<td>
+				<select>
+					<option>010</option>
+					<option>017</option>
+					<option>018</option>
+					<option>019</option>
+				</select>
+				- <input type ="text" style="width : 50px;"> - <input type="text" style="width:50px;">
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">SMS수신여부</td>
+			<td><input type="checkbox">동의함<br>
+			쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">이메일</td>
+			<td><input type="text"></td>
+		</tr>
+		
+		<tr>
+			<td bgcolor="gray" align="center">이메일수신여부</td>
+			<td><input type="checkbox" checked>동의함<br>
+			쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" align="center">평생회원</td>
+			<td><input type="radio" style="circle" name = "check" value = "동의함">동의함<!-- radio name value -->
+			<input type="radio" style="circle" name = "check" value = "동의하지 않음">동의하지 않음<br>
+			평생회원으로 가입하시면 유인컴퍼니 회원 탈퇴시까지는 휴면회원으로 전환되지 않으며, 
+			고객님의 개인정보가 탈퇴시까지 안전하게 보관됩니다.
+			</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
